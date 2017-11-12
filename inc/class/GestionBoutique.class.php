@@ -18,10 +18,13 @@ class GestionBoutique{
     }
 
 
-    public function getProduit(){
+    private function getProduit()
+    {
 
-        $donnees = executeRequete("SELECT id_produit,reference,titre,photo,prix FROM produit WHERE categorie='chemise'");
-        //$_GET[categorie]
+        $get_product = $_GET['categorie'];
+
+        $donnees = executeRequete('SELECT id_produit,reference,titre,photo,prix FROM produit WHERE categorie="'.$get_product.'"');
+
 
         $produit = array();
 
@@ -30,6 +33,26 @@ class GestionBoutique{
             $produit[] = $row;
         }
         return $produit;
+    }
+
+    public function display_Product()
+    {
+        $html ="";
+
+        foreach ($this->getProduit() as $value)
+        {
+            $html = $html. "<figure class='snip1418'><img src='". $value['photo']. "' alt='sample85'/>";
+            $html = $html. "<div class='add-to-cart'> <i class='ion-android-add'></i><span>Voir</span></div>";
+            $html = $html. "<figcaption>";
+            $html = $html. "<h3>" .$value['titre']. "</h3>";
+            $html = $html. "<p>All this modern technology just makes people try to do everything at once.</p>";
+            $html = $html. "<div class='price'>";
+            $html = $html.  $value['prix']. " €";
+            $html = $html. "</div>";
+            $html = $html. "</figcaption><a href='#'></a>";
+            $html = $html. "</figure>";
+        }
+        echo $html;
     }
 
 

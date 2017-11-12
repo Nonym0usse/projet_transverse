@@ -29,22 +29,6 @@ $keywords = $site->my_keywords();
         <script src="<?php RACINE_SITE ?>inc/js/bootstrap.js"></script>
 
     </head>
-    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5283a6485ce1cb5a"></script>
-    <script type="text/javascript">
-        addthis.layers({
-            'theme' : 'transparent',
-            'share' : {
-                'position' : 'left',
-                'numPreferredServices' : 3
-            },
-            'follow' : {
-                'services' : [
-                    {'service': 'facebook', 'id': 'airdemontcuq'},
-                    {'service': 'twitter', 'id': 'airdemontcuq'}
-                ]
-            }
-        });
-    </script>
     <body>
 
 
