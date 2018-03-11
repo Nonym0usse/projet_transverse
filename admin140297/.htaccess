@@ -1,0 +1,18 @@
+# Activation du module de r��criture d'URL :
+RewriteEngine on
+
+
+#------------------------------------------------------------------------------------
+# Règles de réécriture d'URL :
+#------------------------------------------------------------------------------------
+
+#--------- pages de la maquete ---------------
+RewriteRule ^article$ index.php?op=list_articles [L]
+RewriteRule ^add-article$ index.php?op=ajout_article [L]
+
+RewriteRule ^results-commande$ index.php?op=list_commandes [L]
+
+
+
+#--------- retour page accueil ------------------------------------------------------
+ErrorDocument  404  /index.php

@@ -1,0 +1,20 @@
+# Activation du module de r��criture d'URL :
+RewriteEngine on
+
+
+#------------------------------------------------------------------------------------
+# Règles de réécriture d'URL :
+#------------------------------------------------------------------------------------
+
+#--------- pages de la maquete ---------------
+RewriteRule ^boutique$ index.php?op=boutique [L]
+RewriteRule ^contact$ index.php?op=site_contact [L]
+RewriteRule ^connexion$ index.php?op=site_login [L]
+RewriteRule ^panier$ index.php?op=panier [L]
+RewriteRule ^inscription$ index.php?op=site_inscription [L]
+RewriteRule ^profil$ index.php?op=profil [L]
+RewriteRule ^product,(.*)$ index.php?op=fiche_produit&id=$1 [L]
+
+
+#--------- retour page accueil ------------------------------------------------------
+ErrorDocument  404  /index.php
