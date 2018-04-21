@@ -53,7 +53,7 @@
         ?>
 
       </ul>
-      <form class="form-inline my-lg-0 mr-auto">
+      <form class="form-inline my-lg-0 mr-auto" method="post">
         <input class="form-control mr-sm-2 form-search" type="text" placeholder="Rechercher">
         <button class="btn  my-2 my-sm-0" type="submit"><i class="fa fa-fw fa-search"></i></button>
       </form>

@@ -9,7 +9,7 @@ if($_SERVER['SERVER_NAME'] =='localhost'){
   define('NDD_PATH', "http://localhost/trans-final/admin140297/");
   //-- chemin des photos
 }else{
-  define("NDD_PATH", "http://oxy-nov.atspace.eu/admin140297/"); //url du site public
+  define("NDD_PATH", "http://delisucre.atspace.eu/admin140297/"); //url du site public
   ini_set('display_errors', 0);
 }
 

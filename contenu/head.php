@@ -59,6 +59,9 @@ switch($_REQUEST['op']){
 <meta name="robots" content="index,follow,all">
 <meta name="description" content="<?php echo $description ?>" />
 <meta name="keywords" content="<?php echo $keywords ?>" />
+<script src="js/jquery-1.11.min.js"></script>
+<script  src="css/bootstrap-4.0.0/js/bootstrap.js"></script>
+<script src='https://www.google.com/recaptcha/api.js'></script>
 
 <link rel="stylesheet" href="css/bootstrap-4.0.0/css/bootstrap.min.css" type="text/css">
 <link rel="stylesheet" href="css/style.css" type="text/css">

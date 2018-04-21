@@ -16,7 +16,7 @@ class Database{
     private $db_host;
     private $pdo;
 
-    public function __construct($db_name = '2641691_oxynov', $db_user = '2641691_oxynov', $db_pass = 'FreshA1r', $db_host = 'fdb19.atspace.me')
+    public function __construct($db_name = 'site', $db_user = 'root', $db_pass = 'root', $db_host = 'localhost')
     {
         $this->db_name = $db_name;
         $this->db_user = $db_user;
@@ -28,7 +28,7 @@ class Database{
     {
         if($this->pdo == null)
         {
-            $pdo = new PDO('mysql:host=fdb19.atspace.me;dbname=2641691_oxynov;charset=utf8', '2641691_oxynov', 'FreshA1r');
+            $pdo = new PDO('mysql:host=localhost;dbname=site;charset=utf8', 'root', 'root');
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->pdo = $pdo;
         }

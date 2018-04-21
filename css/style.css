@@ -13,9 +13,12 @@
 	background-color: rgb(255,255,255);
 }
 
-.btn {
-	background-color: transparent;
-	border-color: black;
+label{
+  color: #FFF;
+}
+
+p{
+  color: #FFF;
 }
 
 .btn:hover {
@@ -44,8 +47,18 @@
 
 /*body*/
 
+.contact2{
+  position: relative;
+  min-height: 600px;
+}
+
 body {
 	background-color: rgb(0,0,0);
+}
+
+.title-txt{
+  color: #FFF;
+  margin-top: 10px;
 }
 
 /*logo*/
@@ -182,7 +195,7 @@ body {
 .txt-contact{
 	background-color: #000;
 	width: 100%;
-	height: 400px;
+	min-height: 400px;
 }
 
 
@@ -205,8 +218,42 @@ footer{
 }
 
 
+/** LOGIN **/
+
+.form-login{
+  min-height: 300px;
+  padding-top: 30px;
+}
+
+.login-container{
+  width: 300px;
+}
+
+span{
+  color: #FFF;
+}
+
+.img-contact{
+  width: 650px;
+  height: 400px;
+  margin-top: -50px;
+}
+
+.presentation{
+  background-color: #FFF;
+  min-width: 700px;
+}
+
+.txt-ere{
+  color: #000;
+}
+
 /** FICHE PRODUIT **/
 
 .title-produit{
 	color: #FFF;
+}
+
+#civilite{
+  display: inline-block;
 }
