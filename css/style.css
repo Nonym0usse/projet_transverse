@@ -68,6 +68,33 @@ body {
 	height: 50px;
 }
 
+/* Bandeau Accueil */
+
+@media screen and (min-width: 1800px ) {
+
+.bandeau {
+    width: 100vw;
+    max-width:100%;
+    background-image: url(../img/oxygen-water-float.jpg);
+    background-size: cover;
+    text-align: center;
+    height: 100vh
+}
+}
+
+@media screen and (max-width: 1799px ) {
+
+.bandeau {
+    width: 100vw;
+    max-width:100%;
+    background-image: url(../img/oxygen-water-float.jpg);
+    background-size: cover;
+    text-align: center;
+    margin-top: 76px;
+    height: inherit;
+}
+}
+
 /*image*/
   /*Accueil.html*/
 .image-presentation {

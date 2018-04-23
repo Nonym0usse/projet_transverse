@@ -13,13 +13,28 @@ if(!empty($_POST['pseudo']) && !empty($_POST['mdp']))
 
 ?>
 
+<section class="title-txt">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <br />
+        <h1 class="section-heading text-uppercase">Connexion</h1>
+        <br />
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col align-self-center">
+        <p class="text-white" style="text-align: justify">
+          Connectez-vous à votre compte pour bénéficier de nombreux avantages. Pas encore inscrit ? Aucun problème, c'est entièrement gratuit.
+        </p>
+        <br />
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="connexion-container txt-contact">
   <div class="container">
-    <h1 class="title-txt">Connexion</h1>
-    <br />
-    <p>
-      Connectez-vous à votre compte pour bénéficier de nombreux avantages. Pas encore inscrit ? Aucun problème, c'est entièrement gratuit.
-    </p>
     <div class="login-container">
       <form class="form-horizontal" action="" method="post">
         <div class="form-group">

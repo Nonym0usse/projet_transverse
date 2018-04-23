@@ -8,7 +8,9 @@
 ?>
 
 
-<img src='<?= NDD_PATH."/img/Canoxynov.png"?>' class="image-presentation"/>
+<div class="bandeau">
+  <img src='<?= NDD_PATH."/img/Canoxynov-bandeau.png"?>' style="width: 70vw;">
+</div>
 
 <div class="container-fluid presentation">
   <h4>Une nouvelle ère.</h4>
