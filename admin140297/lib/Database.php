@@ -28,7 +28,7 @@ class Database{
   {
     if($this->pdo == null)
     {
-      $pdo = new PDO('mysql:host=fdb19.atspace.me;dbname=2641691_oxynov;charset=utf8', '2641691_oxynov', 'FreshA1r');
+      $pdo = new PDO('mysql:host=localhost;dbname=site;charset=utf8', 'root', 'root');
       $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
       $this->pdo = $pdo;
     }

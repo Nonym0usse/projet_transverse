@@ -7,6 +7,8 @@
 
 if($_SERVER['SERVER_NAME'] =='localhost'){
 	define('NDD_PATH', "http://localhost:8888/projet_transverse/");
+	ini_set('display_errors', 0);
+
 	//-- chemin des photos
 }else{
 	define("NDD_PATH", "http://oxy-nov.atspace.eu/"); //url du site public

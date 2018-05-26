@@ -65,17 +65,14 @@ switch($_REQUEST['op']){
 
 <link rel="stylesheet" href="css/bootstrap-4.0.0/css/bootstrap.min.css" type="text/css">
 <link rel="stylesheet" href="css/style.css" type="text/css">
+<link rel="stylesheet" href="css/animate.css" type="text/css">
 <link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.css" type="text/css">
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114994693-1"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
+<script src="<?= NDD_PATH ?>js/jquery.scrollify.js"></script>
+<script src="<?= NDD_PATH ?>js/script.js"></script>
 
-gtag('config', 'UA-114994693-1');
-</script>
 <?php
 if(!empty($og)){
   echo $og;

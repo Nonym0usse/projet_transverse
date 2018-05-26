@@ -33,6 +33,13 @@ class Site
 
   }
 
+  public function getLimit()
+  {
+    $db = new \lib\Database();
+    $data = $db->query("SELECT * FROM produit LIMIT 4");
+    return $data;
+  }
+
   public function getArticle()
   {
     $db = new \lib\Database();
@@ -136,7 +143,7 @@ class Site
   public function setPanier($data){
     if(!empty($data))
     {
-      $_SESSION['panier'] = $data;
+      
       $msg = "<div class='alert alert-info'>Ajouté au panier !</div>";
     }else{
       $msg = "<div class='alert alert-danger'>Erreur ajout panier !</div>";

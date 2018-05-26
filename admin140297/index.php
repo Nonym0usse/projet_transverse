@@ -3,58 +3,39 @@
 # @Date:   2018-02-15T23:22:19+01:00
 # @Email:  cyril.vella@yahoo.com
 # @Last modified by:   CYRIL VELLA
-# @Last modified time: 2018-03-11T08:57:41+01:00
-
+# @Last modified time: 2018-02-18T19:36:36+01:00
 require_once 'lib/Admin.php';
+
+$admin = new Admin();
+
+if(!empty($_POST['email']) && !empty($_POST['password']))
+{
+	$msg = $admin->setConnexion();
+}
 ?>
 
-<div class="main-panel">
-<?php
+<!DOCTYPE html>
+<html>
+<head>
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+	<meta name="viewport" content="width=device-width" />
+	<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="assets/css/accueil.css" rel="stylesheet" />
 
-	$admin = new Admin();
-	$admin->load_content();
-
-	?>
-
-</div>
-
-
+	<title>Oxynov - Administration</title>
+</head>
+<body>
+	<center>
+		<h1 style="color: #FFF; padding-top: 30px;">Connexion Oxynov</h1>
+	</center>
+	<div class="login-page">
+		<div class="form">
+			<form class="login-form" method="POST">
+				<input type="text" name="email" placeholder="Utilisateur"/>
+				<input type="password" name="password" placeholder="Mot de passe"/>
+				<button>COnnexion</button>
+			</form>
+		</div>
+	</div>
 </body>
-
-<!--   Core JS Files   -->
-<script src="assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
-<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
-
-<!--  Charts Plugin -->
-<script src="assets/js/chartist.min.js"></script>
-
-<!--  Notifications Plugin    -->
-<script src="assets/js/bootstrap-notify.js"></script>
-
-<!--  Google Maps Plugin    -->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-
-<!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
-<script src="assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
-
-<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
-<script src="assets/js/demo.js"></script>
-
-<script type="text/javascript">
-$(document).ready(function(){
-
-	demo.initChartist();
-
-	$.notify({
-		icon: 'pe-7s-smile',
-		message: "Bienvenue."
-
-	},{
-		type: 'success',
-		timer: 4000
-	});
-
-});
-</script>
-
 </html>

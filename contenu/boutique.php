@@ -11,6 +11,11 @@ $results = $this->getArticle();
 
 
 <div class="container col-xs-12">
+  <h1 class="title-txt" style="text-align: center">Boutique</h1>
+  <p style="text-align: center;">
+    Notre boutique vous propose un large choix de canettes de différentes villes.
+    Chaque canette est Made In France.
+  </p>
   <div class="row">
     <?php
     foreach ($results as $produit) {

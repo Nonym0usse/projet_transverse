@@ -3,7 +3,7 @@
 # @Date:   2018-02-18T16:55:04+01:00
 # @Email:  contact@vella.fr
 # @Last modified by:   CYRIL VELLA
-# @Last modified time: 2018-03-11T09:13:30+01:00
+# @Last modified time: 2018-05-19T14:53:10+02:00
 ?>
 
 <!DOCTYPE HTML>
@@ -13,7 +13,7 @@
 	<link rel="icon" type="image/png" href="assets/img/favicon.ico">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-	<title>OXYNOV - ADMINISTRATION</title>
+	<title>Oxynov - ADMINISTRATION</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
 	<meta name="viewport" content="width=device-width" />
@@ -30,37 +30,37 @@
 <body>
 
 	<div class="wrapper">
-		<div class="sidebar" data-color="dark" data-image="assets/img/sidebar-5.jpg" >
+		<div class="sidebar" data-color="dark" data-image="assets/img/sidebar-5.jpg">
 			<div class="sidebar-wrapper">
 				<div class="logo">
 					<a href="#" class="simple-text">
-						OXYNOV
+						Oxynov
 					</a>
 				</div>
 
 				<ul class="nav">
 					<li>
-						<a href="<?= setLink('') ?>">
+						<a href="dashboard.php">
 							<i class="pe-7s-graph"></i>
 							<p>Tableau de bord</p>
 						</a>
 					</li>
 					<li class="active">
-						<a href="<?= setLink('results-commande') ?>">
+						<a href="style.php">
 							<i class="pe-7s-ticket"></i>
-							<p>Gérer les commandes</p>
-						</a>
-					</li>
-					<li>
-						<a href="<?= setLink('article') ?>">
-							<i class="pe-7s-music"></i>
 							<p>Gérer les articles</p>
 						</a>
 					</li>
 					<li>
-						<a href="<?= setLink('add-article') ?>">
+						<a href="list_chansons.php">
 							<i class="pe-7s-music"></i>
-							<p>Ajouter un article</p>
+							<p>Gérer les commandes</p>
+						</a>
+					</li>
+					<li>
+						<a href="traduction.php">
+							<i class="pe-7s-science"></i>
+							<p>Traductions</p>
 						</a>
 					</li>
 					<li>

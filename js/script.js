@@ -5,7 +5,7 @@ function changePage(i){
 	  //alert(document.getElementById('numpage').value);
 	  document.getElementById('frmPages').submit();
 }
-//-- Tri sur les listes 
+//-- Tri sur les listes
 function changeTri(v){
     document.getElementById('tri').value = v;
     document.getElementById('frmPages').submit();
@@ -204,14 +204,14 @@ $(document).ready(function(){
 		bgImg = bgImg.replace("/400/","/1600/");
 
 		clearTimeout(defilementAuto);
-		
+
 		bgImg = bgImg.replace("url(","");
 		bgImg = bgImg.replace(")","");
 		bgImg = bgImg.replace("\"","");
 		bgImg = bgImg.replace(".jpg\"",".jpg");
 		//alert(bgImg);
 		$('#bigImgDetail img').attr('src', bgImg);
-		
+
 	});
 
 	$('.js-itemlist-img-container, .js-itemlist-hover').hover(function(){
@@ -235,4 +235,3 @@ function openListLots(o){
     }
     console.log(res[1].style.display);
 }
-

@@ -46,6 +46,9 @@
           <li class="nav-item">
             <a class="nav-link" href="<?= setlink('connexion') ?>">Connexion</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<?= setlink('panier') ?>">Mon panier</a>
+          </li>
           <?php
         }
 

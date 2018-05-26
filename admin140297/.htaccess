@@ -7,12 +7,9 @@ RewriteEngine on
 #------------------------------------------------------------------------------------
 
 #--------- pages de la maquete ---------------
-RewriteRule ^article$ index.php?op=list_articles [L]
-RewriteRule ^add-article$ index.php?op=ajout_article [L]
-
-RewriteRule ^results-commande$ index.php?op=list_commandes [L]
-
+RewriteRule ^modifier,(.*)$ modifier.php?reference=$1 [L]
+RewriteRule ^supprimer,(.*)$ supprimer.php?reference=$1 [L]
 
 
 #--------- retour page accueil ------------------------------------------------------
-ErrorDocument  404  /index.php
+ErrorDocument  404  /404.php
