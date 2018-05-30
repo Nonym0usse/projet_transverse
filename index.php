@@ -8,9 +8,6 @@
 session_start();
 
 
-error_reporting(E_ALL & ~E_NOTICE);
-ini_set('display_errors','on');
-
 //Connexion à la base de données
 require_once 'lib/Database.php';
 
@@ -22,6 +19,9 @@ require_once 'lib/Site.php';
 
 //autres paramètres
 include_once 'conf.php';
+
+// Fichier de Traductions
+require_once 'lib/lang.php';
 
 $oSite = new Site();
 

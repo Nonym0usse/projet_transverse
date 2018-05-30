@@ -10,6 +10,10 @@ RewriteEngine on
 RewriteRule ^modifier,(.*)$ modifier.php?reference=$1 [L]
 RewriteRule ^supprimer,(.*)$ supprimer.php?reference=$1 [L]
 
+RewriteRule ^modifieruser,(.*)$ modifieruser.php?reference=$1 [L]
+RewriteRule ^supprimeruser,(.*)$ supprimeruser.php?reference=$1 [L]
+
+RewriteRule ^supprimercommande,(.*)$ supprimercommande.php?reference=$1 [L]
 
 #--------- retour page accueil ------------------------------------------------------
 ErrorDocument  404  /404.php

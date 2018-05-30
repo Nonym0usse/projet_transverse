@@ -10,13 +10,12 @@ require_once 'lib/Admin.php';
 require_once 'navbar.php';
 
 $admin = new Admin();
-$chanson = $admin->getChanson();
-$styles = $admin->getStyle();
-$id = $admin->getChansonById($_REQUEST['reference']);
+$article = $admin->getArticle();
+$id = $admin->getArticlebyId($_REQUEST['reference']);
 
 
 if(!empty($_POST)){
-  $msg = $admin->setChansonsUpdate($_REQUEST['reference']);
+  $msg = $admin->setArticleUpdate($_REQUEST['reference']);
 }
 
 
@@ -31,45 +30,21 @@ if(!empty($_POST)){
         <div class="col-md-12">
           <div class="card">
             <div class="header">
-              <h4 class="title">Modifier une chanson</h4>
+              <h4 class="title">Modifier un article - (id : <?=  $_REQUEST['reference'] ?>)</h4>
               <form class="form-horizontal" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                   <div class="col-md-6">
-                    <label>Titre de la chanson</label>
-                    <input type="text" name="titre" class="form-control" value="<?= $id[0]->titre?>" required>
+                    <label>Nom du produit</label>
+                    <input type="text" name="nom" class="form-control" placeholder="Nom du produit" required>
                   </div>
+
                   <div class="col-md-6">
-                    <label>Style de la chanson</label>
-                    <select class="form-control" name="style">
-                      <?php
-                      foreach($styles as $res){
-                        echo "<option value='$res->nom_fr'>" . $res->nom_fr . "</option>";
-                      }
-                      ?>
-                    </select>
+                    <label>Prix du produit</label>
+                    <input type="text" name="prix" class="form-control" placeholder="Prix du produit" required>
                   </div>
                 </div>
 
 
-                <div class="form-group">
-                  <div class="col-md-6">
-                    <label>Ou publier la chanson ?</label>
-                    <select class="form-control" name="type">
-                      <option value="1">Chansons à chanter</option>
-                      <option value="2">Chansons sans paroles</option>
-                      <option value="3">Chansons éditoriales </option>
-                      <option value="4">Oeuvres originales</option>
-                      <option value="5">Sonneries téléphone</option>
-                      <option value="6">Virgules sonore</option>
-                      <option value="7">Ambiance sonore</option>
-                    </select>
-                  </div>
-                  <div class="col-md-6">
-                    <label>Ajouter un creatoke</label>
-                    <input type="hidden" />
-                    <input type="file" class="form-control" name="creatoke">
-                  </div>
-                </div>
                 <div class="form-group">
                   <div class="col-md-6">
                     <label>Ajouter une image</label>
@@ -77,101 +52,68 @@ if(!empty($_POST)){
                     <input type="file" class="form-control" name="image">
                   </div>
                   <div class="col-md-6">
-                    <label>Ajouter le morceau complet</label>
-                    <input type="hidden" />
-                    <input type="file" class="form-control" name="complet">
+                    <label>Provenance du produit</label>
+                    <input type="text" name="provenance" class="form-control" placeholder="Provenance du produit" required>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="col-md-6">
+                    <label>contenanceCL du produit</label>
+                    <input type="text" name="contenanceCL" class="form-control" placeholder="Contenance CL" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label>Stock</label>
+                    <input type="text" name="stock" class="form-control" placeholder="Stock" required>
                   </div>
                 </div>
 
                 <div class="form-group">
                   <div class="col-md-12">
-                    <label>Ajouter une description en français</label>
-                    <textarea class="form-control" name="description_fr" value="<?= $id[0]->description?>"></textarea>
+                    <label>Description du produit</label>
+                    <textarea class="form-control" name="description" placeholder="Description du produit"></textarea>
                   </div>
                 </div>
 
-                <div class="form-group">
-                  <div class="col-md-12">
-                    <label>Ajouter une description en anglais</label>
-                    <textarea class="form-control" name="description_en" value="<?= $id[0]->descriptionen?>"></textarea>
-                  </div>
-                </div>
 
-                <div class="form-group">
-                  <div class="col-md-6">
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="customCheck1" value="<?= $id[0]->online?>"  name="online">
-                      <label class="custom-control-label" for="customCheck1">Mettre la chanson en ligne</label>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" name="enavant" value="<?= $id[0]->enavant?>" id="customCheck1">
-                      <label class="custom-control-label" for="customCheck1">Mettre en avant</label>
-                    </div>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="col-md-6">
-                    <label>Lyrics de la chanson (français)</label>
-                    <textarea type="text" name="lyrics-fr" class="form-control" placeholder="<?= $id[0]->lyrics?>"></textarea>
-                  </div>
-                  <div class="col-md-6">
-                    <label>Lyrics de la chanson (anglais)</label>
-                    <textarea type="text" name="lyrics-en" class="form-control" placeholder="<?= $id[0]->lyricsen?>"></textarea>
-                  </div>
-                </div>
                 <button type="submit" name="submit" class="btn btn-primary">Enregistrer</button>
               </form>
             </div>
           </div>
           <div class="card">
             <div class="header">
-              <h4 class="title">Gérer les chansons - liste des titres</h4>
+              <h4 class="title">Gérer les articles</h4>
             </div>
             <div class="content table-responsive table-full-width">
               <table class="table table-hover table-striped">
                 <thead>
                   <th>N°</th>
+                  <th>Nom</th>
+                  <th>Prix</th>
+                  <th>Description</th>
+                  <th>Provenance</th>
+                  <th>ContenanceCL</th>
+                  <th>Stock</th>
                   <th>Image</th>
-                  <th>Titre</th>
-                  <th>Style</th>
-                  <th>En ligne</th>
-                  <th>Mettre en avant</th>
-                  <th>Lecture Creatoke</th>
-                  <th>Lecture oeuvres</th>
                   <th>Modifier</th>
                   <th>Supprimer</th>
                 </thead>
                 <tbody>
                   <?php
-                  foreach($chanson as $chansons)
+                  foreach($article as $produit)
                   {
-                    if($chansons->online == "1")
-                    {
-                      $online = "Oui";
-                    }else{
-                      $online = "Non";
-                    }
-
-                    if($chansons->enavant == "1")
-                    {
-                      $enavant = "Oui";
-                    }else {
-                      $enavant = "Non";
-                    }
                     ?>
                     <tr>
-                      <td><?= $chansons->id ?></td>
-                      <td><?= $chansons->image ?></td>
-                      <td><?= $chansons->titre ?></td>
-                      <td><?= $chansons->style ?></td>
-                      <td><?= $online ?></td>
-                      <td><?= $enavant ?></td>
-                      <td><?= $chansons->nblecture ?></td>
-                      <td><?= $chansons->lectureoeuvre ?></td>
-                      <td><a href="<?= setLink('modifier') . ",".$chansons->id?>"><i class='fas fa-edit'></i></a></td>
-                      <td><a href="<?= setLink('supprimer') . ",".$chansons->id?>"><i class='fas fa-trash'></i></a></td>
+                      <td><?= $produit->idProduit ?></td>
+                      <td><?= $produit->nom ?></td>
+                      <td><?= $produit->prix ?></td>
+                      <td><?= $produit->description ?></td>
+                      <td><?= $produit->provenance ?></td>
+                      <td><?= $produit->contenanceCL ?></td>
+                      <td><?= $produit->stock ?></td>
+                      <td><?= $produit->image ?></td>
+                      <td><a href="<?= setLink('admin140297/modifier') . ",".$produit->idProduit?>"><i class='fas fa-edit'></i></a></td>
+                      <td><a href="<?= setLink('admin140297/supprimer') . ",".$produit->idProduit?>"><i class='fas fa-trash'></i></a></td>
                     </tr>
                     <?php
                   }

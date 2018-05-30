@@ -84,19 +84,21 @@ class Site
 
       if($resultat['cRole'] == "1")
       {
-        header('Location:'. NDD_PATH.'admin140297/');
+        header('Location:'. NDD_PATH.'admin140297/dashboard.php');
         exit();
         $_SESSION['statut'] = 1;
       }
 
-      $isPasswordCorrect = password_verify($data['mdp'], $resultat['passwd']);
+
+      $pass = hash('sha256', $data['mdp']);
 
 
-      if($isPasswordCorrect)
+      if($resultat['passwd'] == $pass)
       {
         session_start();
         $_SESSION['pseudo'] = $resultat['login'];
-        header('Location:'.NDD_PATH.'profil');
+        $_SESSION['adresse'] = $resultat['adresse'];
+        header('Location:'.NDD_PATH.'contenu/profil.php');
         exit();
       }else {
         $msg = "<div class='alert alert-warning'>Mot de passe incorrect.</div>";
@@ -106,16 +108,17 @@ class Site
     else{
       $msg = "<div class='alert alert-warning'>Merci de renseigner un identifiant et un mot de passe.</div>";
     }
+    return $msg;
   }
 
   public function setInscription($data)
   {
     $db = new \lib\Database();
 
-    $hash = password_hash($data['mdp'], PASSWORD_DEFAULT);
+    $hash = hash('sha256', $data['mdp']);
 
     $req = $db->prepare("INSERT INTO clients(login, passwd, nom, prenom, dateNaissance, dateInscription, adresse, mail, telFixe, telPort, cRole, gender) VALUES (:login, :passwd, :nom, :prenom, :dateNaissance, :dateInscription, :adresse, :mail, :telFixe, :telPort, :cRole, :gender)");
-    $req->execute(array(
+    $e = $req->execute(array(
       'login' => $data['pseudo'],
       'passwd' => $hash,
       'nom' => $data['nom'],
@@ -129,26 +132,128 @@ class Site
       'cRole' => 0,
       'gender' => $data['civilite']
     ));
-  }
 
-  public function Deconnexion($action)
-  {
-    if($action == "deconnexion")
+    if($e)
     {
-      session_destroy();
+      $msg = "<div class='alert alert-success'>Votre inscription à bien été pris en compte.</div>";
+    }else{
+      $msg = "<div class='alert alert-danger'>Erreur lors de l'inscription</div>";
     }
+    return $msg;
   }
 
+  public function translateText($name)
+  {
+    return $GLOBALS['lang'][$name];
+  }
 
   public function setPanier($data){
     if(!empty($data))
     {
-      
-      $msg = "<div class='alert alert-info'>Ajouté au panier !</div>";
+      $db = new \lib\Database();
+      $sql = "SELECT * FROM produit where idProduit='$data'";
+      $req = $db->query2($sql);
+
+      if($req[0]['stock'] == 0)
+      {
+        $msg = "<div class='alert alert-danger'>Produit indisponible !</div>";
+      }else{
+        if (!isset($_SESSION['panier'])){
+          $_SESSION['panier'] = array();
+          $_SESSION['panier']['nomProduit'] = array();
+          $_SESSION['panier']['qteProduit'] = array();
+          $_SESSION['panier']['prixProduit'] = array();
+        }
+
+        array_push( $_SESSION['panier']['nomProduit'], $req[0]['nom']);
+        array_push( $_SESSION['panier']['qteProduit'], $req[0]['stock']);
+        array_push( $_SESSION['panier']['prixProduit'], $req[0]['prix']);
+
+        $msg = "<div class='alert alert-info'>Ajouté au panier !</div>";
+      }
     }else{
       $msg = "<div class='alert alert-danger'>Erreur ajout panier !</div>";
     }
+    return $msg;
+  }
+
+  public function viderPanier($nomProduit)
+  {
+    $tmp=array();
+    $tmp['nomProduit'] = array();
+    $tmp['qteProduit'] = array();
+    $tmp['prixProduit'] = array();
+
+
+    for($i = 0; $i < count($_SESSION['panier']['nomProduit']); $i++)
+    {
+      if ($_SESSION['panier']['nomProduit'][$i] !== $nomProduit)
+      {
+        array_push( $tmp['nomProduit'],$_SESSION['panier']['nomProduit'][$i]);
+        array_push( $tmp['qteProduit'],$_SESSION['panier']['qteProduit'][$i]);
+        array_push( $tmp['prixProduit'],$_SESSION['panier']['prixProduit'][$i]);
+
+        $msg = "<div class='alert alert-info'>Votre article à été supprimé !</div>";
+      }
+    }
+
+    $_SESSION['panier'] =  $tmp;
+    unset($tmp);
+    return $msg;
+  }
+
+  public function validerPanier()
+  {
+    $db = new \lib\Database();
+
+    $req = $db->prepare('INSERT INTO commande(adresseLivraison, adresseFacturation, login) VALUES(:adresseLivraison, :adresseFacturation, :login)');
+    $data = $req->execute([
+      'adresseLivraison' => $_SESSION['adresse'],
+      'adresseFacturation' => $_SESSION['adresse'],
+      'login' => $_SESSION['pseudo']
+    ]);
+
+
+    if($data)
+    {
+      $msg = "<div class='alert alert-success'>Votre commande à été prise en compte</div>";
+
+      $req = $db->prepare('INSERT INTO detailscommande(paiement, methodeLivraison, etapeLivraison) VALUES(:paiement, :methodeLivraison, :etapeLivraison)');
+      $data = $req->execute([
+        'paiement' => $_POST['radios'],
+        'methodeLivraison' => 'Mondial relay',
+        'etapeLivraison' => 'En transition'
+      ]);
+      unset($_SESSION['panier']);
+    }else{
+      $msg = "<div class='alert alert-danger'>Erreur de la commande. Merci de réessayer.</div>";
+    }
 
     return $msg;
+  }
+
+  public function getHistorique()
+  {
+
+  }
+
+  public function setCommentaire()
+  {
+    $db = new \lib\Database();
+
+    $req = $db->prepare('INSERT INTO commentaire(image) VALUES(:image)');
+    $msg = $req->execute([
+      'image' => $chemin[0]
+    ]);
+  }
+
+  public function getInfos()
+  {
+    $db = new \lib\Database();
+
+    $user = $_SESSION['pseudo'];
+
+    $data = $db->query2("SELECT * FROM clients WHERE login='$user'");
+    return $data;
   }
 }

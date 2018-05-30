@@ -248,21 +248,6 @@ require_once 'navbar.php';
 <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 <script src="assets/js/demo.js"></script>
 
-<script type="text/javascript">
-$(document).ready(function(){
 
-  demo.initChartist();
-
-  $.notify({
-    icon: 'pe-7s-smile',
-    message: "Bienvenue Gérard."
-
-  },{
-    type: 'success',
-    timer: 4000
-  });
-
-});
-</script>
 
 </html>

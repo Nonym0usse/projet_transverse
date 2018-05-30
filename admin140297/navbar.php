@@ -46,25 +46,25 @@
 						</a>
 					</li>
 					<li class="active">
-						<a href="style.php">
+						<a href="article.php">
 							<i class="pe-7s-ticket"></i>
 							<p>Gérer les articles</p>
 						</a>
 					</li>
 					<li>
-						<a href="list_chansons.php">
+						<a href="commande.php">
 							<i class="pe-7s-music"></i>
 							<p>Gérer les commandes</p>
 						</a>
 					</li>
 					<li>
-						<a href="traduction.php">
+						<a href="users.php">
 							<i class="pe-7s-science"></i>
-							<p>Traductions</p>
+							<p>Membres</p>
 						</a>
 					</li>
 					<li>
-						<a href="maps.php">
+						<a href="deconnexion.php">
 							<i class="pe-7s-map-marker"></i>
 							<p>Deconnexion</p>
 						</a>

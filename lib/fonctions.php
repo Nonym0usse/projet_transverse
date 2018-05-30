@@ -30,6 +30,11 @@ function setLink($name = '', $return = false, $url = false){
     }
 }
 
+function translateText($name)
+{
+  return $GLOBALS['lang'][$name];
+}
+
 function internauteEstConnecte()
 {
 	if(!isset($_SESSION['pseudo']))

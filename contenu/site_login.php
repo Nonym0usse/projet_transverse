@@ -8,37 +8,37 @@ session_start();
 
 if(!empty($_POST['pseudo']) && !empty($_POST['mdp']))
 {
-  $msg = $this->setConnexion($_POST);
+  echo $msg = $this->setConnexion($_POST);
 }
 
 ?>
 
 <section class="connexion-container txt-contact">
   <div class="container">
-    <h1 class="title-txt">Connexion</h1>
+    <h1 class="title-txt"><?= $this->translateText('connexion')?></h1>
     <br />
     <p>
-      Connectez-vous à votre compte pour bénéficier de nombreux avantages. Pas encore inscrit ? Aucun problème, c'est entièrement gratuit.
+      <?= $this->translateText('connectez-vous')?>
     </p>
     <div class="login-container">
       <form class="form-horizontal" action="" method="post">
         <div class="form-group">
           <label>Pseudo</label>
           <input type="pseudo" name="pseudo" class="form-control" placeholder="Pseudo">
-          <label>Mot de passe</label>
-          <input type="password" name="mdp" class="form-control" placeholder="Mot de passe">
+          <label><?= $this->translateText('mdp')?></label>
+          <input type="password" name="mdp" class="form-control" placeholder="<?= $this->translateText('mdp')?>">
         </div>
         <input type="submit" class="btn btn-danger" value="Connexion">
       </form>
       <br />
-      <span>Pas encore inscrit ? </span><a href="<?= setLink('inscription')?>">Inscrivez-vous.</a>
+      <span><?= $this->translateText('ask-ins')?> </span><a href="<?= setLink('inscription')?>"><?= $this->translateText('inscrivez-vous')?></a>
     </div>
   </div>
 </section>
 <div class="card text-white bg-danger mb-3 warning">
   <div class="card-header">ATTENTION</div>
   <div class="card-body">
-    <h5 class="card-title">PROJET ETUDIANT - Ingésup YNOV CAMPUS AIX EN PROVENCE</h5>
-    <p class="card-text">Ce site fait partie d'un projet étudiant, merci de ne pas acheter les produits présentés sur ce site.</p>
+    <h5 class="card-title"><?= $this->translateText('projet')?></h5>
+    <p class="card-text"><?= $this->translateText('projet2')?></p>
   </div>
 </div>

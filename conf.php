@@ -7,7 +7,8 @@
 
 if($_SERVER['SERVER_NAME'] =='localhost'){
 	define('NDD_PATH', "http://localhost:8888/projet_transverse/");
-	ini_set('display_errors', 0);
+	error_reporting(E_ALL & ~E_NOTICE);
+
 
 	//-- chemin des photos
 }else{
@@ -17,3 +18,13 @@ if($_SERVER['SERVER_NAME'] =='localhost'){
 
 $conf['key'] = "6LeCDVIUAAAAAP86GJ95Z-0OY8CeUaG-oEeIpYcF";
 $conf['secret'] = "6LeCDVIUAAAAAE3-DtBHeIC4yaiUjikQZO9Vd_eb";
+
+
+$lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+
+if($lang == "fr")
+{
+  $GLOBALS['langue'] = "fr";
+}else{
+  $GLOBALS['langue'] = "en";
+}

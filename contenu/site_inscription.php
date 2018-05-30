@@ -7,13 +7,13 @@
 
 if(!empty($_POST))
 {
-  $msg = $this->setInscription($_POST);
+  echo $msg = $this->setInscription($_POST);
 }
 
 ?>
 <section class="inscription-container">
   <div class="container">
-    <h1 class="title-txt">Inscription</h1>
+    <h1 class="title-txt"><?= $this->translateText('inscrivez-vous')?></h1>
     <p>
       Inscrivez-vous pour profiter de nombreux avantages.
     </p>
@@ -23,49 +23,50 @@ if(!empty($_POST))
           <div class="form-group">
             <label>Pseudo</label>
             <input type="pseudo" class="form-control" name="pseudo" placeholder="Pseudo">
-            <label>Mot de passe</label>
-            <input type="password" class="form-control" name="mdp" placeholder="Mot de passe">
+            <label><?= $this->translateText('mdp')?></label>
+            <input type="password" class="form-control" name="mdp" placeholder="<?= $this->translateText('mdp')?>">
           </div>
           <div class="form-group">
-            <label>Confirmez votre mot de passe</label>
-            <input type="password"  class="form-control" name="mdp2" placeholder="Confirmez votre mot de passe">
-            <label>Nom</label>
-            <input type="text" class="form-control" name="nom" placeholder="Nom">
+            <label><?= $this->translateText('confirmez')?></label>
+            <input type="password"  class="form-control" name="mdp2" placeholder="<?= $this->translateText('confirmez')?>">
+            <label><?= $this->translateText('nom')?></label>
+            <input type="text" class="form-control" name="nom" placeholder="<?= $this->translateText('nom')?>">
           </div>
           <div class="form-group">
-            <label>Prénom</label>
-            <input type="text"  class="form-control" name="prenom" placeholder="Prénom">
+            <label><?= $this->translateText('prenom')?></label>
+            <input type="text"  class="form-control" name="prenom" placeholder="<?= $this->translateText('prenom')?>">
             <label>Email</label>
             <input type="email" class="form-control" name="email" placeholder="E-mail">
           </div>
         </div>
         <div class="col">
           <div class="form-group">
-            <label>Ville</label>
-            <input type="text" class="form-control" name="ville" placeholder="Ville" pattern="[a-zA-Z0-9-_.]{5,15}" title="caractères acceptés : a-zA-Z0-9-_.">
-            <label>Code postal</label>
-            <input type="text" class="form-control" name="code_postal" placeholder="Code postal" />
+            <label><?= $this->translateText('ville')?></label>
+            <input type="text" class="form-control" name="ville" placeholder="<?= $this->translateText('ville')?>" pattern="[a-zA-Z0-9-_.]{5,15}" title="caractères acceptés : a-zA-Z0-9-_.">
+            <label><?= $this->translateText('cp')?></label>
+            <input type="text" class="form-control" name="code_postal" placeholder="<?= $this->translateText('cp')?>" />
           </div>
           <div class="form-group">
-            <label>Adresse</label>
-            <input type="text" class="form-control" name="adresse" placeholder="Adresse" />
+            <label><?= $this->translateText('adresse')?></label>
+            <input type="text" class="form-control" name="adresse" placeholder="<?= $this->translateText('adresse')?>" />
           </div>
           <div class="form-group">
-            <label>Homme</label>
+            <label><?= $this->translateText('homme')?></label>
             <input type="radio" value="m" name="civilite" checked id="civilite">
-            <label>Femme</label>
+            <label><?= $this->translateText('femme')?></label>
             <input type="radio" value="f"  name="civilite" id="civilite" >
           </div>
-          <input type="submit" class="btn btn-danger" value="Inscription"></p>
+          <input type="submit" class="btn btn-danger" value="<?= $this->translateText('envoyer')?>"></p>
         </div>
       </div>
     </form>
   </div>
 </section>
+
 <div class="card text-white bg-danger mb-3 warning">
   <div class="card-header">ATTENTION</div>
   <div class="card-body">
-    <h5 class="card-title">PROJET ETUDIANT - Ingésup YNOV CAMPUS AIX EN PROVENCE</h5>
-    <p class="card-text">Ce site fait partie d'un projet étudiant, merci de ne pas acheter les produits présentés sur ce site.</p>
+    <h5 class="card-title"><?= $this->translateText('projet')?></h5>
+    <p class="card-text"><?= $this->translateText('projet2')?></p>
   </div>
 </div>

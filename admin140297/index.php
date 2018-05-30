@@ -10,7 +10,7 @@ $admin = new Admin();
 
 if(!empty($_POST['email']) && !empty($_POST['password']))
 {
-	$msg = $admin->setConnexion();
+	echo $msg = $admin->setConnexion();
 }
 ?>
 
@@ -31,7 +31,7 @@ if(!empty($_POST['email']) && !empty($_POST['password']))
 	<div class="login-page">
 		<div class="form">
 			<form class="login-form" method="POST">
-				<input type="text" name="email" placeholder="Utilisateur"/>
+				<input type="text" name="email" placeholder="Pseudo"/>
 				<input type="password" name="password" placeholder="Mot de passe"/>
 				<button>COnnexion</button>
 			</form>

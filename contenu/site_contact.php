@@ -8,45 +8,44 @@
 
 <div class="container-fluid txt-contact">
   <div class="container contact2">
-    <h1 class="title-txt">Contactez-nous.</h1>
+    <h1 class="title-txt"><?= $this->translateText('contactez')?></h1>
     <br />
     <p>
-      Une question ? Contactez notre service consommateur. Service à l'écoute 24h/24 7j/7. Pour plus d'informations contactez notre service au 08.98.95.12.44.
+<?= $this->translateText('txt-contact')?>
     </p>
     <div class="form-login">
       <div class="row">
         <div class="col">
           <form class="form-horizontal">
             <div class="form-group">
-              <label>Nom</label>
-              <input type="text" class="form-control" placeholder="Nom">
-              <label>Prénom</label>
-              <input type="text" class="form-control" placeholder="Prénom">
+              <label><?= $this->translateText('nom')?></label>
+              <input type="text" class="form-control" placeholder="<?= $this->translateText('nom')?>">
+              <label><?= $this->translateText('prenom')?></label>
+              <input type="text" class="form-control" placeholder="<?= $this->translateText('prenom')?>">
             </div>
             <div class="form-group">
               <label>E-mail</label>
               <input type="text" class="form-control" placeholder="E-Mail">
-              <label>Demande</label>
-              <textarea type="text" class="form-control" placeholder="Votre demande..."></textarea>
+              <label><?= $this->translateText('demande')?></label>
+              <textarea type="text" class="form-control" placeholder="<?= $this->translateText('demande')?>..."></textarea>
             </div>
             <div class="form-group">
               <div class="g-recaptcha" data-sitekey="6LeCDVIUAAAAAP86GJ95Z-0OY8CeUaG-oEeIpYcF"></div>
             </div>
-            <button class="btn btn-danger" type="submit">Envoyer</button>
+            <button class="btn btn-danger" type="submit"><?= $this->translateText('envoyer')?></button>
           </form>
           <br />
         </div>
         <div class="col">
-          <img src="<?= NDD_PATH."img/contact.png"?>" class="img-contact">
+          <div class="fb-page" style="margin-left: 100px;" data-href="https://www.facebook.com/oxynov13/" data-tabs="timeline" data-height="350" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/oxynov13/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/oxynov13/">Oxynov</a></blockquote></div>        </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-<div class="card text-white bg-danger mb-3 warning">
-  <div class="card-header">ATTENTION</div>
-  <div class="card-body">
-    <h5 class="card-title">PROJET ETUDIANT - Ingésup YNOV CAMPUS AIX EN PROVENCE</h5>
-    <p class="card-text">Ce site fait partie d'un projet étudiant, merci de ne pas acheter les produits présentés sur ce site.</p>
+  <div class="card text-white bg-danger mb-3 warning">
+    <div class="card-header">ATTENTION</div>
+    <div class="card-body">
+      <h5 class="card-title"><?= $this->translateText('projet')?></h5>
+      <p class="card-text"><?= $this->translateText('projet2')?></p>
+    </div>
   </div>
-</div>

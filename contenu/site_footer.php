@@ -12,20 +12,18 @@
     <div class="container">
       <div class="row">
         <div class="p-4 col-md-4">
-          <h2 class="mb-4">Plan du site</h2>
+          <h2 class="mb-4"><?= translateText('plan')?></h2>
         </div>
         <div class="p-4 col-md-4">
-          <h2 class="mb-4">Catégories</h2>
+          <h2 class="mb-4"><?= translateText('categories')?></h2>
           <ul class="list-unstyled">
-            <a href="#" class="text-white">Nouveaux Produits</a>
+            <a href="#" class="text-white"><?= translateText('nouveaux-produits')?></a>
             <br>
-            <a href="#" class="text-white">Produits Régionaux</a>
-            <br>
-            <a href="#" class="text-white">Nos Fournisseurs</a>
+            <a href="#" class="text-white"><?= translateText('produit-regionaux')?></a>
           </ul>
         </div>
         <div class="p-4 col-md-4">
-          <h2 class="mb-4">Nous contacter</h2>
+          <h2 class="mb-4"><?= translateText('nous-contacter')?></h2>
           <p>
             0----
             <br>

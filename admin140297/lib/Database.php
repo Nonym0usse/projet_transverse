@@ -28,9 +28,16 @@ class Database{
   {
     if($this->pdo == null)
     {
-      $pdo = new PDO('mysql:host=localhost;dbname=site;charset=utf8', 'root', 'root');
-      $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-      $this->pdo = $pdo;
+      if($_SERVER['SERVER_NAME'] =='localhost'){
+
+        $pdo = new PDO('mysql:host=localhost;dbname=site;charset=utf8', 'root', 'root');
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $this->pdo = $pdo;
+      }else{
+        $pdo = new PDO('mysql:host=fdb19.atspace.me;dbname=2641691_oxynov;charset=utf8', '2641691_oxynov', 'FreshA1r');
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $this->pdo = $pdo;
+      }
     }
     return $this->pdo;
   }
@@ -44,8 +51,7 @@ class Database{
 
   public function prepare($data)
   {
-      $req = $this->getPDO()->prepare($data);
-      return $req;
+    $req = $this->getPDO()->prepare($data);
+    return $req;
   }
-
 }

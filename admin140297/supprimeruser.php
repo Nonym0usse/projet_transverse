@@ -4,7 +4,7 @@ require_once 'lib/Admin.php';
 require_once 'navbar.php';
 $admin = new Admin();
 
-$admin->deleteArticle($_REQUEST['reference']);
+$admin->deleteUser($_REQUEST['reference']);
 
-header("Location: article.php");
+header("Location: users.php");
  ?>

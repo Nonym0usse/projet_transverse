@@ -13,14 +13,17 @@ $admin = new Admin();
 
 $article = $admin->getArticle();
 
-if(!empty($_POST)){
-  echo $msg = $admin->setArticle();
-}
+
 
 //varDump($article);
 
 ?>
 <div class="main-panel">
+  <?php
+  if(!empty($_POST)){
+    echo $msg = $admin->setArticle();
+  }
+   ?>
   <?php require_once 'navbar-haut.php'; ?>
   <div class="content">
     <div class="container-fluid">
@@ -78,6 +81,7 @@ if(!empty($_POST)){
               </form>
             </div>
           </div>
+
           <div class="card">
             <div class="header">
               <h4 class="title">Gérer les articles</h4>
@@ -110,8 +114,8 @@ if(!empty($_POST)){
                       <td><?= $produit->contenanceCL ?></td>
                       <td><?= $produit->stock ?></td>
                       <td><?= $produit->image ?></td>
-                      <td><a href="<?= setLink('modifier') . ",".$produit->idProduit?>"><i class='fas fa-edit'></i></a></td>
-                      <td><a href="<?= setLink('supprimer') . ",".$produit->idProduit?>"><i class='fas fa-trash'></i></a></td>
+                      <td><a href="<?= setLink('admin140297/modifier') . ",".$produit->idProduit?>"><i class='fas fa-edit'></i></a></td>
+                      <td><a href="<?= setLink('admin140297/supprimer') . ",".$produit->idProduit?>"><i class='fas fa-trash'></i></a></td>
                     </tr>
                     <?php
                   }

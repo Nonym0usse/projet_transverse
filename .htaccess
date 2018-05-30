@@ -12,8 +12,10 @@ RewriteRule ^contact$ index.php?op=site_contact [L]
 RewriteRule ^connexion$ index.php?op=site_login [L]
 RewriteRule ^panier$ index.php?op=panier [L]
 RewriteRule ^inscription$ index.php?op=site_inscription [L]
+RewriteRule ^payer$ index.php?op=payer [L]
 RewriteRule ^profil$ index.php?op=profil [L]
 RewriteRule ^product,(.*)$ index.php?op=fiche_produit&id=$1 [L]
+RewriteRule ^deconnexion$ index.php?op=deconnexion [L]
 
 
 #--------- retour page accueil ------------------------------------------------------
